@@ -1,26 +1,26 @@
 #pragma once
 
 
-template<class T>
+template<class T, int size>
 
 class SmartArray
 {
 	T* mas;
-	int size;
+	int _size;
 public:
-	SmartArray(int size);
+	SmartArray();
 	void show_array();
 
 };
-template<class T>
-SmartArray<T>::SmartArray(int size)
+template<class T, int size>
+SmartArray<T,size>::SmartArray()
 {
 	this->mas = new T[size];
 	for (int i = 0; i < size; i++) mas[i] = (T)i/2;
-	this->size = size;
+	this->_size = size;
 }
-template<class T>
-void SmartArray<T>::show_array()
+template<class T,int size>
+void SmartArray<T, size>::show_array()
 {
 	for (int i = 0; i < size; i++)
 		std::cout << mas[i]<<", ";

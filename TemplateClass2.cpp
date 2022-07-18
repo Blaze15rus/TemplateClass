@@ -5,7 +5,9 @@ using namespace std;
 
 int main()
 {
-	SmartArray <int> a(5);
+	SmartArray <int,8> a;
 	a.show_array();
+
 }
+
 
