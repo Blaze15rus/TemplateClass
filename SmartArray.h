@@ -13,10 +13,14 @@ public:
 	~SmartArray();
 	//Getters
 	void show_array()const;
+	T operator[](int )const;
 	//Operators
 	SmartArray& operator =(const SmartArray& b);
+	T& operator[](int);
 
 };
+
+
 template<class T>
 SmartArray<T>::SmartArray(int size)
 {
@@ -54,4 +58,22 @@ SmartArray<T>& SmartArray<T>:: operator =(const SmartArray& b)
 		this->mas[i] = b.mas[i];
 	}
 	return *this;
+}
+template<class T>
+T SmartArray<T>::operator[](int index)const
+{
+	if ((index > size - 1)||(index < -size)) return -100;
+	return mas[index];
+	int tempindex = index;
+	if (index < 0) tempindex += size;
+	return mas[tempindex];
+	}
+template<class T>
+T& SmartArray<T>::operator[](int index)
+{
+	if ((index > size - 1)||(index < -size)) return mas[0];
+	return mas[index];
+	int tempindex = index;
+	if (index < 0) tempindex += size;
+	return mas[tempindex];
 }

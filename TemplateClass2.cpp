@@ -11,5 +11,6 @@ int main()
 	b.show_array();
 	a = b;
 	a.show_array();
+	cout << a[5];
 }
 
